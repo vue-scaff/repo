@@ -1,12 +1,12 @@
 {
   "name": "@scaff/vue-cli-sheet",
-  "version": "5.1.9",
+  "version": "5.3.19",
   "description": "A basic style package for supporting `vue-cli-scaff`",
   "main": "sheet.css",
   "dependencies": {
+    "animate.css": "^4.1.0",
     "normalize.css": "^8.0.1",
-    "style.reset": "^1.0.2",
-    "animate.css": "^4.1.0"
+    "style.reset": "^1.0.2"
   },
   "author": "joenix",
   "license": "MIT"
