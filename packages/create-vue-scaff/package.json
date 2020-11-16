@@ -1,0 +1,13 @@
+{
+  "name": "create-vue-scaff",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Joenix",
+  "main": "index.js",
+  "bin": {
+    "create-vue-scaff": "index.js"
+  },
+  "files": [
+    "index.js"
+  ]
+}
