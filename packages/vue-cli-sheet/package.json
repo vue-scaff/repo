@@ -1,6 +1,6 @@
 {
   "name": "@scaff/vue-cli-sheet",
-  "version": "5.3.19",
+  "version": "5.3.20",
   "description": "A basic style package for supporting `vue-cli-scaff`",
   "main": "sheet.css",
   "dependencies": {
