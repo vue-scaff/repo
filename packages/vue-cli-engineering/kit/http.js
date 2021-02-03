@@ -86,7 +86,7 @@ function merge(keep = {}, runtime = {}) {
   });
 
   // For Headers
-  json[HEADER]["Content-Type"] = type;
+  json[HEADER]["Content-Type"] = json[HEADER]["Content-Type"] || type;
 
   // Endless
   return json;
