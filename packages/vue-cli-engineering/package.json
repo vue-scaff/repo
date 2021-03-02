@@ -7,7 +7,7 @@
   "author": "joenix",
   "license": "MIT",
   "dependencies": {
-    "@repo/i": "git+https://github.com/joenix/repo.git",
+    "@repoo/i": "^0.0.1",
     "@scaff/vue-cli-context": "^5.3.19",
     "axios": "^0.19.2",
     "clone": "^2.1.2",
