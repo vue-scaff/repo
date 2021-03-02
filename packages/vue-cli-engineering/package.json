@@ -1,6 +1,6 @@
 {
   "name": "@scaff/vue-cli-engineering",
-  "version": "5.3.20",
+  "version": "5.3.22",
   "description": "Support `vue-cli-scaff` to engineering project",
   "main": "index.js",
   "scripts": {},
