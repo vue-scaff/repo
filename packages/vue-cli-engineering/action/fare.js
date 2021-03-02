@@ -7,8 +7,11 @@ export default (group, inject, invoke) => {
   foreach(group, (item, key) => {
     // Item is Function
     if (item.constructor === Function) {
-      // Get Result
-      group[key] = invoke ? item.call({}, inject) : item(inject);
+      // Get PKG
+      const pkg = invoke ? item.call({}, inject) : item(inject);
+
+      // Set Result
+      group[pkg.name || key] = pkg;
     }
   });
 };
