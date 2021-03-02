@@ -10,7 +10,7 @@ export default (group, inject, invoke) => {
       // Get PKG
       const pkg = invoke ? item.call({}, inject) : item(inject);
 
-      // Set Result
+      // Set Result with Name
       group[pkg.name || key] = pkg;
     }
   });
