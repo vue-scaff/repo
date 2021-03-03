@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Get Property as Mode from Projects
 export default (projecter, mode) => {

@@ -1,11 +1,11 @@
 // Use Alternate
-import { procer } from "../action";
+import { procer } from '../action';
 
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Export
-export default projecter => {
+export default (projecter) => {
   // Loop
   return foreach(projecter, (project, name) => {
     // ✿ Procer Util

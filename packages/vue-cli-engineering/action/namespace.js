@@ -1,8 +1,8 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Export
-export default names => {
+export default (names) => {
   // Loop
   foreach(names, (name, key) => {
     // Rename

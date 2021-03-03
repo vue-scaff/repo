@@ -1,26 +1,26 @@
 // For Registry
 function alternate(mode) {
-  if (mode === "host") {
+  if (mode === 'host') {
     try {
       return require.context(`@registry`, true, /host.js$/);
     } catch (e) {}
   }
-  if (mode === "api") {
+  if (mode === 'api') {
     try {
       return require.context(`@registry`, true, /api.js$/);
     } catch (e) {}
   }
-  if (mode === "route") {
+  if (mode === 'route') {
     try {
       return require.context(`@registry`, true, /route.js$/);
     } catch (e) {}
   }
-  if (mode === "store") {
+  if (mode === 'store') {
     try {
       return require.context(`@registry`, true, /store.js$/);
     } catch (e) {}
   }
-  if (mode === "mixin") {
+  if (mode === 'mixin') {
     try {
       return require.context(`@registry`, true, /mixin.js$/);
     } catch (e) {}

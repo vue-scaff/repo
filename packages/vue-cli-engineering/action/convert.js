@@ -3,42 +3,42 @@ function convert(mode, suffix) {
   if (suffix === undefined) {
     return;
   }
-  if (mode === "component") {
+  if (mode === 'component') {
     try {
       return require.context(`@component`, true, /.vue$/);
     } catch (e) {}
   }
-  if (mode === "filter") {
+  if (mode === 'filter') {
     try {
       return require.context(`@filter`, true, /.js$/);
     } catch (e) {}
   }
-  if (mode === "directive") {
+  if (mode === 'directive') {
     try {
       return require.context(`@directive`, true, /.js$/);
     } catch (e) {}
   }
-  if (mode === "route") {
+  if (mode === 'route') {
     try {
       return require.context(`@route`, true, /\S+\/route.js$/);
     } catch (e) {}
   }
-  if (mode === "store") {
+  if (mode === 'store') {
     try {
       return require.context(`@store`, true, /\S+\/store.js$/);
     } catch (e) {}
   }
-  if (mode === "util") {
+  if (mode === 'util') {
     try {
       return require.context(`@util`, true, /.js$/);
     } catch (e) {}
   }
-  if (mode === "style") {
+  if (mode === 'style') {
     try {
       return require.context(`@style`, true, /variables.scss$/);
     } catch (e) {}
   }
-  if (mode === "i18n") {
+  if (mode === 'i18n') {
     try {
       return require.context(`@i18n`, true, /.js$/);
     } catch (e) {}

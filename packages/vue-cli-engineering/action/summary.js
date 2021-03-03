@@ -1,27 +1,21 @@
 function replace(uri, exp = new RegExp(/\{\w+\}/g)) {
   if (exp.test(uri)) {
-    uri.replace(exp, word => {});
+    uri.replace(exp, (word) => {});
   }
 
-  return exp.test(uri)
-    ? (j, o, e, n, i, x, a = 0, cache = [j, o, e, n, i, x]) =>
-        uri.replace(exp, word => cache[a++])
-    : uri;
+  return exp.test(uri) ? (j, o, e, n, i, x, a = 0, cache = [j, o, e, n, i, x]) => uri.replace(exp, (word) => cache[a++]) : uri;
 }
 
 function key(uri) {
-  return uri
-    .replace(/^\//, "")
-    .replace(/\-/, "_")
-    .replace(/\//g, "__");
+  return uri.replace(/^\//, '').replace(/\-/, '_').replace(/\//g, '__');
 }
 
 export default (host, uris, links = {}) => {
-  if (typeof uris == "function") {
+  if (typeof uris == 'function') {
     return uris(host, replace, key);
   }
 
-  uris.map(uri => {
+  uris.map((uri) => {
     links[key(uri)] = replace(uri);
   });
 

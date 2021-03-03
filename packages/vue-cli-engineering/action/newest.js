@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach, clone } from "../kit";
+import { foreach, clone } from '../kit';
 
 // Export
 export default (group, black) => {

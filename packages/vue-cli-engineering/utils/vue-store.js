@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Export
 export default (Vuex, modules, utils, getters, global) => {
@@ -17,6 +17,6 @@ export default (Vuex, modules, utils, getters, global) => {
   // Return
   return new Vuex.Store({
     modules,
-    getters
+    getters,
   });
 };

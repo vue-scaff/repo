@@ -5,18 +5,18 @@ const def = {
     // Data
     data: {},
     // Headers
-    headers: {}
+    headers: {},
   },
   // Response
   response: {
     // Success
     success() {},
     // Error
-    error() {}
-  }
+    error() {},
+  },
 };
 
-export default mode => {
+export default (mode) => {
   // Return
   return def[mode];
 };

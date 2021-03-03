@@ -1,8 +1,8 @@
 // Use Summary
-import { summary } from "../action";
+import { summary } from '../action';
 
 // Import Empty
-import { empty } from "../kit";
+import { empty } from '../kit';
 
 // Export
 export default (glober, extend) => {

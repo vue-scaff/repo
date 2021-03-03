@@ -1,36 +1,11 @@
 // Import Action
-import {
-  support,
-  registry,
-  provider,
-  catcher,
-  fare,
-  newest,
-  procer,
-  blader,
-  vuelax,
-  peel,
-  lint,
-  fusion,
-  attendant,
-  taunt,
-  namespace
-} from "./action";
+import { support, registry, provider, catcher, fare, newest, procer, blader, vuelax, peel, lint, fusion, attendant, taunt, namespace } from './action';
 
 // Import Util
-import {
-  vueRunner,
-  vueRegister,
-  vueComponent,
-  vueFilter,
-  vueDirective,
-  vueRouter,
-  vueStore,
-  vueLanguage
-} from "./utils";
+import { vueRunner, vueRegister, vueComponent, vueFilter, vueDirective, vueRouter, vueStore, vueLanguage } from './utils';
 
 // Import Kit
-import { http, json } from "./kit";
+import { http, json } from './kit';
 
 // Glober
 const glober = {};
@@ -47,7 +22,7 @@ const config = {};
 // External
 function subscribe(mode, hand) {
   // Treatment
-  config[mode] = ["request", "response"].includes(mode) ? lint(mode) : {};
+  config[mode] = ['request', 'response'].includes(mode) ? lint(mode) : {};
 
   // Get Surface
   sniper[mode] = hand(config[mode], sniper[mode]) || sniper[mode];
@@ -86,14 +61,14 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
         // Core
         Vue,
         // Model External
-        subscribe
+        subscribe,
       };
     },
 
     // Compile
     Compile(App) {
       // Taunt First
-      taunt(glober, peel(projecter, "api"));
+      taunt(glober, peel(projecter, 'api'));
 
       // Get Http
       const { request, response } = config;
@@ -102,7 +77,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       const syringe = {
         $http: http(request, response),
         $style: sniper.style,
-        $api: glober.api
+        $api: glober.api,
       };
 
       // ★ project as RC
@@ -117,23 +92,18 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
         // Cudstom Params
         ...newest(sniper, Object.keys(process.env.rc.extract)),
         // Built-In
-        ...syringe
+        ...syringe,
       };
 
       // ★ Snipe Provider -- Just Store
-      // provider(process.env.rc || {}, sniper, senior, true);
+      provider(process.env.rc || {}, sniper, senior, true);
       // ★★★ Special -- Get Result of Store
       fare(sniper.store, senior, json);
       // ★★★ Special -- Get Result of Directive
       fare(sniper.directive, senior);
 
       // ★ Registry Provider -- Just Store
-      registry(
-        { registry: { store: process.env.rc.registry.store } },
-        glober,
-        senior,
-        true
-      );
+      registry({ registry: { store: process.env.rc.registry.store } }, glober, senior, true);
 
       // Fusion Debris
       fusion(glober, sniper);
@@ -151,8 +121,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       Vue.use(vueDirective, sniper.directive);
 
       // Derivative
-      const derivative =
-        config.store && config.store.getters ? config.store.getters : {};
+      const derivative = config.store && config.store.getters ? config.store.getters : {};
 
       // Instance
       const instance = {
@@ -161,7 +130,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
         // Init Router
         router: vueRouter(Router, sniper.route, config.route, glober.route),
         // Init Language
-        i18n: vueLanguage(I18N, sniper.i18n, config.i18n)
+        i18n: vueLanguage(I18N, sniper.i18n, config.i18n),
       };
 
       // Vue Runner
@@ -170,8 +139,8 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       // Return for Next
       return {
         ...namespace(instance),
-        ...senior
+        ...senior,
       };
-    }
+    },
   };
 };

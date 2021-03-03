@@ -1,11 +1,11 @@
 // Use Contextual
-import contextual from "@scaff/vue-cli-context";
+import contextual from '@scaff/vue-cli-context';
 
 // Use Alternate
-import { alternate } from "../action";
+import { alternate } from '../action';
 
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Set Context into Registry
 export default ({ registry }, glober, inject, late = false) => {
@@ -17,7 +17,7 @@ export default ({ registry }, glober, inject, late = false) => {
   // Just Store
   if (late === true) {
     // Set Key
-    const key = "store";
+    const key = 'store';
 
     // Inset to Glober
     return (glober[key] = contextual(
@@ -25,9 +25,9 @@ export default ({ registry }, glober, inject, late = false) => {
         // Get Context
         context: alternate(key),
         // Expect If
-        expect: pkg => pkg,
+        expect: (pkg) => pkg,
         // Empowerment
-        inject: inject
+        inject: inject,
       },
       // Promise
       false
@@ -37,7 +37,7 @@ export default ({ registry }, glober, inject, late = false) => {
   // Get Contextual
   foreach(registry, (set, key) => {
     // No Store
-    if (key === "store") {
+    if (key === 'store') {
       return;
     }
 
@@ -51,7 +51,7 @@ export default ({ registry }, glober, inject, late = false) => {
           // Get Context
           context: alternate(key),
           // Expect If
-          expect: pkg => pkg
+          expect: (pkg) => pkg,
         },
         // Promise
         false

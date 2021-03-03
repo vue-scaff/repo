@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 export default (utils = {}) => {
   // Loop Utils
@@ -7,7 +7,7 @@ export default (utils = {}) => {
     // Secret
     const secret = key
       // Remove Vue
-      .replace(/^vue-/, "$")
+      .replace(/^vue-/, '$')
       // Change Hump
       .replace(/-(\w)/g, ($0, $1) => $1.toUpperCase());
 

@@ -1,8 +1,8 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Use Summary
-import { summary } from "../action";
+import { summary } from '../action';
 
 // Export
 export default (projecter, glober, sniper, mode) => {
@@ -14,17 +14,7 @@ export default (projecter, glober, sniper, mode) => {
     }
 
     // Get Packages
-    const {
-      api,
-      store,
-      route,
-      util,
-      filter,
-      directive,
-      component,
-      style,
-      i18n
-    } = project;
+    const { api, store, route, util, filter, directive, component, style, i18n } = project;
 
     // Api
     Object.assign(glober.api, summary(glober.host, api));
@@ -50,8 +40,8 @@ export default (projecter, glober, sniper, mode) => {
         name,
         path: `/${name}`,
         component: () => import(`#projects/${name}/app.vue`),
-        children: [route]
-      }
+        children: [route],
+      },
     });
   });
 };

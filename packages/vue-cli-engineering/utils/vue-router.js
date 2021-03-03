@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Export
 export default (Router, modules, configure = {}) => {
@@ -7,12 +7,12 @@ export default (Router, modules, configure = {}) => {
   let routes = [];
 
   // Rebuild Routes
-  foreach(modules, route => routes.push(route));
+  foreach(modules, (route) => routes.push(route));
 
   // Set Router
   const $router = new Router({
     routes,
-    ...configure
+    ...configure,
   });
 
   // Set Route into Configure
@@ -27,7 +27,7 @@ export default (Router, modules, configure = {}) => {
     const newRouter = new Router({
       routes,
       ...configure,
-      scrollBehavior: () => ({ y: 0 })
+      scrollBehavior: () => ({ y: 0 }),
     });
 
     // New Matcher
@@ -38,7 +38,7 @@ export default (Router, modules, configure = {}) => {
   };
 
   // Route Guard
-  ["beforeEach", "afterEach", "beforeResolve"].forEach(key => {
+  ['beforeEach', 'afterEach', 'beforeResolve'].forEach((key) => {
     // in Configure
     if (configure[key] && $router[key]) {
       $router[key](configure[key]);

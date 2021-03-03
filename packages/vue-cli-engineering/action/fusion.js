@@ -1,5 +1,5 @@
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Fusion Sniper + Glober
 export default (glober, sniper) => {
@@ -15,7 +15,7 @@ export default (glober, sniper) => {
     // Set Mantra
     let mantra = [...glober.route];
     // Inject
-    foreach(sniper.route, route => mantra.push(route));
+    foreach(sniper.route, (route) => mantra.push(route));
     // Assignment
     sniper.route = mantra;
   }

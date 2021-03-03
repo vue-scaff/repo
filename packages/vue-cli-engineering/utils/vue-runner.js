@@ -3,13 +3,13 @@ export default {
   install(Vue, App, registries = {}) {
     // Set Instance
     const instance = new Vue({
-			// Dependencies
+      // Dependencies
       ...registries,
-			// Render
-      render: h => h(App)
+      // Render
+      render: (h) => h(App),
     });
 
     // Mount
     instance.$mount(`#app`);
-  }
+  },
 };

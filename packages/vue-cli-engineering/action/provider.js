@@ -1,11 +1,11 @@
 // Use Contextual
-import contextual from "@scaff/vue-cli-context";
+import contextual from '@scaff/vue-cli-context';
 
 // Use Convert
-import { convert } from "../action";
+import { convert } from '../action';
 
 // Use Foreach
-import { foreach } from "../kit";
+import { foreach } from '../kit';
 
 // Set Context into Sniper
 export default ({ extract }, sniper, inject, late = false) => {
@@ -17,7 +17,7 @@ export default ({ extract }, sniper, inject, late = false) => {
   // Just Store
   if (late === true) {
     // Set Key
-    const key = "store";
+    const key = 'store';
 
     // Inset to Sniper
     return (sniper[key] = contextual(
@@ -25,9 +25,9 @@ export default ({ extract }, sniper, inject, late = false) => {
         // Get Context
         context: convert(key, extract[key].suffix),
         // Expect If
-        expect: pkg => pkg,
+        expect: (pkg) => pkg,
         // Empowerment
-        inject: inject
+        inject: inject,
       },
       // Promise
       false
@@ -37,9 +37,11 @@ export default ({ extract }, sniper, inject, late = false) => {
   // Get Contextual
   foreach(extract, (set, key) => {
     // No Store
-    if (key === "store") {
-      // return;
+    if (!inject && key === 'store') {
+      return;
     }
+
+    console.log('?', key, set);
 
     // Others
     sniper[key] = contextual(
@@ -47,14 +49,16 @@ export default ({ extract }, sniper, inject, late = false) => {
         // Get Context
         context: convert(key, set.suffix),
         // Expect If
-        expect: pkg => pkg
+        expect: (pkg) => pkg,
       },
       // Promise
       false
     );
 
+    console.log('!', key, sniper[key]);
+
     // Style
-    if (key === "style") {
+    if (key === 'style') {
       sniper.style = sniper.style.variables;
     }
   });

@@ -1,4 +1,4 @@
-export default target => {
+export default (target) => {
   // Set
   let what;
 

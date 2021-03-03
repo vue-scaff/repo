@@ -20,7 +20,7 @@ function foreach(source, callback = () => {}) {
   // Any (Json)
   const json = {};
 
-  Object.keys(source).map(key => {
+  Object.keys(source).map((key) => {
     json[key] = callback(source[key], key);
   });
 
