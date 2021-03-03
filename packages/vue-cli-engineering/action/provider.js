@@ -41,8 +41,6 @@ export default ({ extract }, sniper, inject, late = false) => {
       return;
     }
 
-    console.log('?', key, set);
-
     // Others
     sniper[key] = contextual(
       {
@@ -54,8 +52,6 @@ export default ({ extract }, sniper, inject, late = false) => {
       // Promise
       false
     );
-
-    console.log('!', key, sniper[key]);
 
     // Style
     if (key === 'style') {
