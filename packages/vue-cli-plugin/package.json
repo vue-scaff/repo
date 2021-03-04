@@ -1,10 +1,10 @@
 {
   "name": "vue-cli-plugin-scaff",
-  "version": "5.4.5",
+  "version": "5.4.6",
   "description": "plugin for `vue-cli-scaff`",
   "main": "index.js",
   "dependencies": {
-    "@scaff/vue-cli-mock": "^5.4.5"
+    "@scaff/vue-cli-mock": "^5.4.6"
   },
   "devDependencies": {
     "@vue/cli-shared-utils": "^4.5.6",

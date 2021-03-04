@@ -1,6 +1,6 @@
 {
   "name": "@scaff/vue-cli-mock",
-  "version": "5.4.5",
+  "version": "5.4.6",
   "description": "Support `vue-scaff` to data debugging",
   "main": "index.js",
   "scripts": {
