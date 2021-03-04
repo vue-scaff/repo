@@ -1,6 +1,6 @@
 {
   "name": "@scaff/vue-cli-scaff",
-  "version": "5.3.100",
+  "version": "5.3.101",
   "description": "A simple scaffold based on `vue-cli 3`",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "author": "joenix",
   "license": "MIT",
   "dependencies": {
-    "@scaff/vue-cli-engineering": "5.3.100",
-    "@scaff/vue-cli-sheet": "^5.3.100",
+    "@scaff/vue-cli-engineering": "^5.3.101",
+    "@scaff/vue-cli-sheet": "^5.3.101",
     "promise-super": "^1.1.8",
     "ressive": "^2.1.2",
     "vue": "^2.6.12",
