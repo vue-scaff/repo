@@ -19,8 +19,8 @@ export default ({ extract }, sniper, inject, late = false) => {
     // Set Key
     const key = 'store';
 
-    // Inset to Sniper
-    return (sniper[key] = contextual(
+    // Tolerance Store
+    const store = contextual(
       {
         // Get Context
         context: convert(key, extract[key].suffix),
@@ -31,13 +31,20 @@ export default ({ extract }, sniper, inject, late = false) => {
       },
       // Promise
       false
-    ));
+    );
+
+    // Inset to Sniper
+    return (sniper[key] = sniper[key].concat(store));
   }
 
   // Get Contextual
   foreach(extract, (set, key) => {
     // No Store
     if (!inject && key === 'store') {
+      // Set Store in Sniper for Error
+      sniper.store = {};
+
+      // Stop
       return;
     }
 
@@ -48,6 +55,8 @@ export default ({ extract }, sniper, inject, late = false) => {
         context: convert(key, set.suffix),
         // Expect If
         expect: (pkg) => pkg,
+        // Empowerment
+        inject: inject,
       },
       // Promise
       false
