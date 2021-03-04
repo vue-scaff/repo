@@ -1,6 +1,6 @@
 {
   "name": "@scaff/vue-cli-context",
-  "version": "5.4.4",
+  "version": "5.4.5",
   "description": "Support `vue-cli-scaff` to catch context",
   "main": "index.js",
   "author": "joenix",

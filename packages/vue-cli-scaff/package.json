@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@scaff/vue-cli-engineering": "^5.4.5",
-    "@scaff/vue-cli-sheet": "^5.3.101",
+    "@scaff/vue-cli-sheet": "^5.4.5",
     "promise-super": "^1.1.8",
     "ressive": "^2.1.2",
     "vue": "^2.6.12",
