@@ -25,7 +25,7 @@ export default ({ extract }, sniper, inject, late = false) => {
         // Get Context
         context: convert(key, extract[key].suffix),
         // Expect If
-        expect: (pkg) => pkg,
+        expect: pkg => pkg,
         // Empowerment
         inject: inject,
       },
@@ -34,7 +34,7 @@ export default ({ extract }, sniper, inject, late = false) => {
     );
 
     // Inset to Sniper
-    return (sniper[key] = sniper[key].concat(store));
+    return (sniper[key] = Object.assign(sniper[key], store));
   }
 
   // Get Contextual
@@ -54,7 +54,7 @@ export default ({ extract }, sniper, inject, late = false) => {
         // Get Context
         context: convert(key, set.suffix),
         // Expect If
-        expect: (pkg) => pkg,
+        expect: pkg => pkg,
         // Empowerment
         inject: inject,
       },
