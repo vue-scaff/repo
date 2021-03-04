@@ -96,7 +96,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       };
 
       // ★ Snipe Provider -- Just Store
-      provider(process.env.rc || {}, sniper, senior, true);
+      // provider(process.env.rc || {}, sniper, senior, true);
       // ★★★ Special -- Get Result of Store
       fare(sniper.store, senior, json);
       // ★★★ Special -- Get Result of Directive
