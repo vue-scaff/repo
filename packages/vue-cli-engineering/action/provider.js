@@ -37,9 +37,9 @@ export default ({ extract }, sniper, inject, late = false) => {
   // Get Contextual
   foreach(extract, (set, key) => {
     // No Store
-    if (!inject && key === 'store') {
+    // if (!inject && key === 'store') {
       // return;
-    }
+    // }
 
     // Others
     sniper[key] = contextual(

@@ -37,5 +37,6 @@
     "cross-env-argv": "^1.1.8",
     "webpack": "^4.42.0",
     "webpack-root": "^1.1.3"
-  }
+  },
+  "gitHead": "9872a481d7b65453d81578fa1460e13dfffdbb75"
 }
