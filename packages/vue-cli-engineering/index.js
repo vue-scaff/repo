@@ -119,6 +119,8 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       Vue.use(vueFilter, sniper.filter);
       // Directive Register
       Vue.use(vueDirective, sniper.directive);
+      // Mixin Register
+      Vue.mixin(glober.mixin);
 
       // Derivative
       const derivative = config.store && config.store.getters ? config.store.getters : {};
