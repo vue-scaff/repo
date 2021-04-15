@@ -147,7 +147,21 @@ function http(url, handler = {}) {
   }
 
   METHODS.map((method) => {
-    handler[method.toLowerCase()] = (data, headers) => help(url, method, data, headers);
+    // Set Handlers
+    handler[method.toLowerCase()] = (data, headers) => {
+      // Extension of Vue
+      if (global.httpInceptor) {
+        // Get Handler
+        const Handler = global.httpInceptor();
+
+        // Reset Data or Not
+        data = Handler.data || data;
+        // Reset Headers or Not
+        headers = Handler.headers || headers;
+      }
+
+      return help(url, method, data, headers);
+    };
   });
 
   return handler;
