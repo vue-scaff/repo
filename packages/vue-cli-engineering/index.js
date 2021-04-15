@@ -130,7 +130,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
         // Init Store
         store: vueStore(Vuex, sniper.store, waitress, derivative, glober.store),
         // Init Router
-        router: vueRouter(Router, sniper.route, config.route, glober.route),
+        router: vueRouter(Router, sniper.route, waitress, config.route, glober.route),
         // Init Language
         i18n: vueLanguage(I18N, sniper.i18n, config.i18n),
       };
