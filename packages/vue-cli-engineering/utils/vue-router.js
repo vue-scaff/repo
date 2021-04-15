@@ -2,14 +2,14 @@
 import { foreach } from '../kit';
 
 // Export
-export default (Router, modules, utils, configure = {}) => {
+export default (Router, modules, waitress, configure = {}) => {
   // Set Routes
   let routes = [];
 
   // Rebuild Routes
   foreach(modules, (route) => {
     // Get Result if Route is Hook
-    routes.push(route.constructor === Function ? route(utils) : route);
+    routes.push(route.constructor === Function ? route(waitress.$util) : route);
   });
 
   // Set Router
