@@ -1,14 +1,23 @@
 // Use Axios
-const Axios = require('axios');
+const Axios = require("axios");
 
 // Use QS
-const { stringify } = require('qs');
+const { stringify } = require("qs");
 
 // Use Foreach
-const { foreach, empty } = require('../kit');
+const { foreach, empty } = require("../kit");
 
 // Set Methods
-const METHODS = ['get', 'post', 'put', 'delete', 'connect', 'head', 'options', 'trace'];
+const METHODS = [
+  "get",
+  "post",
+  "put",
+  "delete",
+  "connect",
+  "head",
+  "options",
+  "trace"
+];
 
 // Set HEADER - Different Name in Uni or H5
 const HEADER = check() ? `header` : `headers`;
@@ -23,10 +32,10 @@ let exp = undefined;
 let preset = {};
 
 // Set Content-Type
-let type = 'application/x-www-form-urlencoded';
+let type = "application/x-www-form-urlencoded";
 
 // Touch
-let touch = `url method data ${HEADER}`.split(' ');
+let touch = `url method data ${HEADER}`.split(" ");
 
 // Noop
 function noop() {}
@@ -37,7 +46,7 @@ function check() {
   // return [undefined, "undefined"].includes(typeof uni) ? undefined : uni;
 
   // 4 nebular.js
-  const u = [undefined, 'undefined'].includes(typeof uni) ? undefined : uni;
+  const u = [undefined, "undefined"].includes(typeof uni) ? undefined : uni;
 
   if (u) {
     return !u.simular;
@@ -64,9 +73,9 @@ function merge(keep = {}, runtime = {}) {
   let json = { ...keep };
 
   // Loop
-  foreach(touch, (key) => {
+  foreach(touch, key => {
     // Objects
-    if (['data', HEADER].includes(key)) {
+    if (["data", HEADER].includes(key)) {
       // Tolerance
       json[key] = keep[key] || {};
       // Merge
@@ -77,7 +86,7 @@ function merge(keep = {}, runtime = {}) {
   });
 
   // For Headers
-  json[HEADER]['Content-Type'] = json[HEADER]['Content-Type'] || type;
+  json[HEADER]["Content-Type"] = json[HEADER]["Content-Type"] || type;
 
   // Endless
   return json;
@@ -86,7 +95,7 @@ function merge(keep = {}, runtime = {}) {
 // Param Process
 function process(data, method) {
   return {
-    ...[{ params: data }, data][[`put`, `post`, `patch`].includes(method) - 0],
+    ...[{ params: data }, data][[`put`, `post`, `patch`].includes(method) - 0]
   };
 }
 
@@ -100,7 +109,7 @@ function help(url, method, data = {}, headers = {}) {
     url,
     method,
     data,
-    [HEADER]: headers,
+    [HEADER]: headers
   };
 
   // Case
@@ -121,7 +130,7 @@ function help(url, method, data = {}, headers = {}) {
   let cache = process(preset.data, method);
 
   // Form Data Format
-  if (~preset[HEADER]['Content-Type'].indexOf(type) && method === 'post') {
+  if (~preset[HEADER]["Content-Type"].indexOf(type) && method === "post") {
     cache = stringify(cache);
   }
 
@@ -131,13 +140,13 @@ function help(url, method, data = {}, headers = {}) {
         // Headers Error
         uni.request({
           ...preset,
-          success: (response) => resolve(Response.success(response)),
-          fail: (error) => reject(Response.error(error)),
+          success: response => resolve(Response.success(response)),
+          fail: error => reject(Response.error(error))
         });
       })
     : exp[method](url, cache)
-        .then((response) => Response.success(response))
-        .catch((error) => Response.error(error));
+        .then(response => Response.success(response))
+        .catch(error => Response.error(error));
 }
 
 // Http Api Create
@@ -146,13 +155,13 @@ function http(url, handler = {}) {
     return console.error(`url is not defined .`);
   }
 
-  METHODS.map((method) => {
+  METHODS.map(method => {
     // Set Handlers
     handler[method.toLowerCase()] = (data, headers) => {
       // Extension of Vue
       if (global.httpInceptor) {
         // Get Handler
-        const Handler = global.httpInceptor();
+        const Handler = global.httpInceptor(data, header);
 
         // Reset Data or Not
         data = Handler.data || data;
@@ -172,5 +181,5 @@ export default (request, response) => {
   transfer(request, response);
 
   // Return Api
-  return (url) => http(url);
+  return url => http(url);
 };
