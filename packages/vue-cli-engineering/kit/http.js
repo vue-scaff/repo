@@ -157,7 +157,7 @@ function http(url, handler = {}) {
 
   METHODS.map(method => {
     // Set Handlers
-    handler[method.toLowerCase()] = (data, headers) => {
+    handler[method.toLowerCase()] = (data = {}, headers = {}) => {
       // Extension of Vue
       if (global.httpInceptor) {
         // Get Handler
