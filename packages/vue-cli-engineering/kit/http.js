@@ -161,7 +161,7 @@ function http(url, handler = {}) {
       // Extension of Vue
       if (global.httpInceptor) {
         // Get Handler
-        const Handler = global.httpInceptor(data, header);
+        const Handler = global.httpInceptor(data, headers);
 
         // Reset Data or Not
         data = Handler.data || data;
