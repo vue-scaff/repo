@@ -1,23 +1,17 @@
 // Use Axios
-const Axios = require("axios");
+import Axios from "axios";
 
 // Use QS
-const { stringify } = require("qs");
+import { stringify } from "qs";
 
 // Use Foreach
-const { foreach, empty } = require("../kit");
+import foreach from "./foreach";
+
+// Use Empty
+import empty from "./empty";
 
 // Set Methods
-const METHODS = [
-  "get",
-  "post",
-  "put",
-  "delete",
-  "connect",
-  "head",
-  "options",
-  "trace"
-];
+const METHODS = ["get", "post", "put", "delete", "connect", "head", "options", "trace"];
 
 // Set HEADER - Different Name in Uni or H5
 const HEADER = check() ? `header` : `headers`;

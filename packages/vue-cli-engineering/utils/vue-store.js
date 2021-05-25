@@ -21,6 +21,8 @@ export default (Vuex, modules, utils, getters, global) => {
     module.actions = actions(module.actions);
   });
 
+  console.log("modules", modules);
+
   // Merge Global
   if (global) {
     Object.assign(modules, global);
