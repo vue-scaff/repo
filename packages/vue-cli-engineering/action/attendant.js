@@ -1,13 +1,13 @@
 // Use Foreach
-import { foreach } from '../kit';
+import { foreach } from "../kit";
 
 // Export
 export default (sniper, external) => {
   // Set Ruse
-  const ruse = ['util', 'api', 'style'];
+  const ruse = ["util", "api", "style"];
 
   // Ruse
-  foreach(ruse, (key) => {
+  foreach(ruse, key => {
     // Assignment
     sniper[`\$${key}`] = sniper[key];
     // Delete

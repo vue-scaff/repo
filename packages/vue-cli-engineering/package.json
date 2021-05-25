@@ -11,6 +11,7 @@
     "@scaff/vue-cli-context": "^5.3.19",
     "axios": "^0.19.2",
     "clone": "^2.1.2",
+    "deepeach": "^1.3.2",
     "importz": "^1.0.11",
     "qs": "^6.9.4"
   }
