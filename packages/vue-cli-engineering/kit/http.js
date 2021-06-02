@@ -40,7 +40,7 @@ function check() {
   // return [undefined, "undefined"].includes(typeof uni) ? undefined : uni;
 
   // 4 nebular.js
-  const u = [undefined, 'undefined'].includes(typeof uni) || typeof uni === 'function' ? undefined : uni;
+  const u = [undefined, 'undefined', 'function'].includes(typeof uni) ? undefined : uni;
 
   if (u) {
     return !u.simular;
