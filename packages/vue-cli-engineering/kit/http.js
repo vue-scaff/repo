@@ -1,17 +1,17 @@
 // Use Axios
-import Axios from "axios";
+import Axios from 'axios';
 
 // Use QS
-import { stringify } from "qs";
+import { stringify } from 'qs';
 
 // Use Foreach
-import foreach from "./foreach";
+import foreach from './foreach';
 
 // Use Empty
-import empty from "./empty";
+import empty from './empty';
 
 // Set Methods
-const METHODS = ["get", "post", "put", "delete", "connect", "head", "options", "trace"];
+const METHODS = ['get', 'post', 'put', 'delete', 'connect', 'head', 'options', 'trace'];
 
 // Set HEADER - Different Name in Uni or H5
 const HEADER = check() ? `header` : `headers`;
@@ -26,10 +26,10 @@ let exp = undefined;
 let preset = {};
 
 // Set Content-Type
-let type = "application/x-www-form-urlencoded";
+let type = 'application/x-www-form-urlencoded';
 
 // Touch
-let touch = `url method data ${HEADER}`.split(" ");
+let touch = `url method data ${HEADER}`.split(' ');
 
 // Noop
 function noop() {}
@@ -40,7 +40,7 @@ function check() {
   // return [undefined, "undefined"].includes(typeof uni) ? undefined : uni;
 
   // 4 nebular.js
-  const u = [undefined, "undefined"].includes(typeof uni) ? undefined : uni;
+  const u = [undefined, 'undefined'].includes(typeof uni) || typeof uni === 'function' ? undefined : uni;
 
   if (u) {
     return !u.simular;
@@ -69,7 +69,7 @@ function merge(keep = {}, runtime = {}) {
   // Loop
   foreach(touch, key => {
     // Objects
-    if (["data", HEADER].includes(key)) {
+    if (['data', HEADER].includes(key)) {
       // Tolerance
       json[key] = keep[key] || {};
       // Merge
@@ -80,7 +80,7 @@ function merge(keep = {}, runtime = {}) {
   });
 
   // For Headers
-  json[HEADER]["Content-Type"] = json[HEADER]["Content-Type"] || type;
+  json[HEADER]['Content-Type'] = json[HEADER]['Content-Type'] || type;
 
   // Endless
   return json;
@@ -89,7 +89,7 @@ function merge(keep = {}, runtime = {}) {
 // Param Process
 function process(data, method) {
   return {
-    ...[{ params: data }, data][[`put`, `post`, `patch`].includes(method) - 0]
+    ...[{ params: data }, data][[`put`, `post`, `patch`].includes(method) - 0],
   };
 }
 
@@ -103,7 +103,7 @@ function help(url, method, data = {}, headers = {}) {
     url,
     method,
     data,
-    [HEADER]: headers
+    [HEADER]: headers,
   };
 
   // Case
@@ -124,7 +124,7 @@ function help(url, method, data = {}, headers = {}) {
   let cache = process(preset.data, method);
 
   // Form Data Format
-  if (~preset[HEADER]["Content-Type"].indexOf(type) && method === "post") {
+  if (~preset[HEADER]['Content-Type'].indexOf(type) && method === 'post') {
     cache = stringify(cache);
   }
 
@@ -135,7 +135,7 @@ function help(url, method, data = {}, headers = {}) {
         uni.request({
           ...preset,
           success: response => resolve(Response.success(response)),
-          fail: error => reject(Response.error(error))
+          fail: error => reject(Response.error(error)),
         });
       })
     : exp[method](url, cache)
