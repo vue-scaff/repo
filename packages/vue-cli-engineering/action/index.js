@@ -1,3 +1,4 @@
+import uni from "./uni";
 import support from "./support";
 import registry from "./registry";
 import provider from "./provider";
@@ -17,4 +18,4 @@ import taunt from "./taunt";
 import summary from "./summary";
 import namespace from "./namespace";
 
-export { support, registry, provider, blader, catcher, fare, newest, procer, vuelax, peel, lint, alternate, convert, fusion, attendant, taunt, summary, namespace };
+export { uni, support, registry, provider, blader, catcher, fare, newest, procer, vuelax, peel, lint, alternate, convert, fusion, attendant, taunt, summary, namespace };
