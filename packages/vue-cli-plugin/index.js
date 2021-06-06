@@ -90,6 +90,9 @@ module.exports = (api, options, rootOptions) => {
     ];
   }
 
+  // Set Tolerant Rant
+  rc.rant = rc.rant || {};
+
   // Configure Webpack
   api.configureWebpack(webpackConfig => {
     // Set Entry in `@scaff/vue-cli-scaff`
@@ -105,7 +108,7 @@ module.exports = (api, options, rootOptions) => {
     alias(webpackConfig.resolve.alias, rc.extract);
 
     // Set Projects Path -- Demise # for Other Proj
-    webpackConfig.resolve.alias.store.set(`#projects`, `${root}/projects`);
+    webpackConfig.resolve.alias.store.set(`#projects`, fs.existsSync(`${root}/projects`) ? `${root}/projects` : `${root}/node_modules/@scaff/vue-cli-scaff/src`);
 
     // Argvs + Injection + Rc
     let parameter = toStringify({
