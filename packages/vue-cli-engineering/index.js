@@ -135,7 +135,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
     };
 
     if (process.env.rc.apollo) {
-      instance.apolloProvider = vueApollo(Vue, apolloProvider);
+      instance.apolloProvider = vueApollo(Vue, process.env.rc.apollo);
     }
 
     // Vue Runner
