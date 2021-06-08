@@ -1,3 +1,4 @@
+import vueApollo from './vue-apollo';
 import vueRunner from './vue-runner';
 import vueRegister from './vue-register';
 import vueComponent from './vue-component';
@@ -8,4 +9,4 @@ import vueRouter from './vue-router';
 import vueStore from './vue-store';
 import vueLanguage from './vue-language';
 
-export { vueRunner, vueRegister, vueComponent, vueFilter, vueDirective, vueRouter, vueStore, vueLanguage };
+export { vueApollo, vueRunner, vueRegister, vueComponent, vueFilter, vueDirective, vueRouter, vueStore, vueLanguage };
