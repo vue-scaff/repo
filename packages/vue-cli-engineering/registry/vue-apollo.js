@@ -36,7 +36,7 @@ export default (Vue, options = {}) => {
       // Get Cookie
       const Authorization = localStorage.getItem('token'); // cookie.get("Authorization");
 
-      // Check Author
+      // Check Authorization
       if (Authorization) {
         // Set Authorization
         operation.setContext({ headers: { Authorization } });
