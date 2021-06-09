@@ -39,7 +39,7 @@ export default (Vue, options = {}) => {
       // Set Authorization
       operation.setContext({
         headers: {
-          Authorization: token,
+          Authorization,
         },
       });
     },
