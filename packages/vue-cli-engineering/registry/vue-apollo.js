@@ -11,7 +11,7 @@ import VueApollo from 'vue-apollo';
 import ApolloClient from 'apollo-boost';
 
 // Use Message and Cookie
-import { console } from '../kit';
+import { console, cookie } from '../kit';
 
 /**
  * https://apollo.vuejs.org/api/apollo-provider.html#constructor
@@ -34,14 +34,13 @@ export default (Vue, options = {}) => {
     // Extension Request
     request: async operation => {
       // Get Cookie
-      const Authorization = cookie.get('Authorization');
+      const Authorization = localStorage.getItem('token'); // cookie.get("Authorization");
 
-      // Set Authorization
-      operation.setContext({
-        headers: {
-          Authorization,
-        },
-      });
+      // Check Author
+      if (Authorization) {
+        // Set Authorization
+        operation.setContext({ headers: { Authorization } });
+      }
     },
   });
 
