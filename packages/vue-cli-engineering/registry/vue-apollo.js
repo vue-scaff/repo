@@ -10,7 +10,7 @@ import VueApollo from 'vue-apollo';
 // Use Apollo Boost
 import ApolloClient from 'apollo-boost';
 
-// Use Message for Error
+// Use Message and Cookie
 import { console } from '../kit';
 
 /**
@@ -22,7 +22,28 @@ export default (Vue, options = {}) => {
   Vue.use(VueApollo);
 
   // Set Client
-  const apolloClient = new ApolloClient(options);
+  const apolloClient = new ApolloClient({
+    // Option
+    ...options,
+
+    // Options of Fetch
+    fetchOptions: {
+      credentials: 'include',
+    },
+
+    // Extension Request
+    request: async operation => {
+      // Get Cookie
+      const Authorization = cookie.get('Authorization');
+
+      // Set Authorization
+      operation.setContext({
+        headers: {
+          Authorization: token,
+        },
+      });
+    },
+  });
 
   // Export for Vue Init
   return new VueApollo({
