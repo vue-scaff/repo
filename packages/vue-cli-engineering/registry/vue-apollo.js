@@ -39,7 +39,7 @@ export default (Vue, options = {}) => {
       // Check Authorization
       if (Authorization) {
         // Set Authorization
-        operation.setContext({ headers: { Authorization } });
+        operation.setContext({ headers: { Authorization, 'Access-Control-Allow-Origin': '*' } });
       }
     },
   });
