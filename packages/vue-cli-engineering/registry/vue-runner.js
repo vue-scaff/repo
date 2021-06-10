@@ -10,7 +10,7 @@ export default {
     });
 
     // Bind on Global
-    global.vm = instance;
+    global.v = instance;
 
     // Mount
     instance.$mount(`#app`);
