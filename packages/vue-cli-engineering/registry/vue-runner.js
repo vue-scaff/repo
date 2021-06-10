@@ -6,8 +6,11 @@ export default {
       // Dependencies
       ...registries,
       // Render
-      render: (h) => h(App),
+      render: h => h(App),
     });
+
+    // Bind on Global
+    global.vm = instance;
 
     // Mount
     instance.$mount(`#app`);
