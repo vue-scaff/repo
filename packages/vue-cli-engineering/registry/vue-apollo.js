@@ -31,6 +31,14 @@ export default (Vue, options = {}) => {
       credentials: 'include',
     },
 
+    cacheRedirects: {
+      addTypename: false,
+    },
+
+    cache: false,
+
+    // credentials: "include",
+
     // Extension Request
     request: async operation => {
       // Get Cookie

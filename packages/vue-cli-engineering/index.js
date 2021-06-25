@@ -5,7 +5,7 @@ import { support, registry, provider, catcher, fare, newest, procer, blader, vue
 import { vueApollo, vueRunner, vueRegister, vueComponent, vueFilter, vueDirective, vueRouter, vueStore, vueLanguage } from './registry';
 
 // Import Kit
-import { http, json } from './kit';
+import { rc, http, json } from './kit';
 
 // Glober
 const glober = {};
@@ -35,16 +35,16 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
     support(Vue, { Router, Vuex, I18N });
 
     // ★ project as RC
-    if (process.env.rc.projects) {
+    if (rc.projects) {
       // Catcher
-      catcher(process.env.rc || {}, projecter);
+      catcher(rc || {}, projecter);
 
       // ✿ Blader
       blader(projecter);
     }
 
     // ★ Snipe Provider
-    provider(process.env.rc || {}, sniper);
+    provider(rc || {}, sniper);
 
     // ✿ Procer Util
     procer(sniper.util);
@@ -53,7 +53,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
     procer(sniper.filter);
 
     // ★ Registry Provider -- No Store
-    registry(process.env.rc || {}, glober, sniper.util);
+    registry(rc || {}, glober, sniper.util);
 
     // Api Hook External
     return {
@@ -80,7 +80,7 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
     };
 
     // ★ project as RC
-    if (process.env.rc.projects) {
+    if (rc.projects) {
       vuelax(projecter, glober, sniper);
     }
 
@@ -89,20 +89,20 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       // Utils
       ...sniper.util,
       // Cudstom Params
-      ...newest(sniper, Object.keys(process.env.rc.extract)),
+      ...newest(sniper, Object.keys(rc.extract)),
       // Built-In
       ...syringe,
     };
 
     // ★ Snipe Provider -- Just Store
-    provider(process.env.rc || {}, sniper, senior, true);
+    provider(rc || {}, sniper, senior, true);
     // ★★★ Special -- Get Result of Store
     fare(sniper.store, senior, json);
     // ★★★ Special -- Get Result of Directive
     fare(sniper.directive, senior);
 
     // ★ Registry Provider -- Just Store
-    registry({ registry: { store: process.env.rc.registry.store } }, glober, senior, true);
+    registry({ registry: { store: rc.registry.store } }, glober, senior, true);
 
     // Fusion Debris
     fusion(glober, sniper);
@@ -134,8 +134,8 @@ export default ({ Vue, Router, Vuex, I18N, Configure, Root }) => {
       i18n: vueLanguage(I18N, sniper.i18n, config.i18n),
     };
 
-    if (process.env.rc.apollo) {
-      instance.apolloProvider = vueApollo(Vue, process.env.rc.apollo);
+    if (rc.apollo) {
+      instance.apolloProvider = vueApollo(Vue, rc.apollo);
     }
 
     // Vue Runner

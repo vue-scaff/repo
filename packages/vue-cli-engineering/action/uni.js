@@ -1,3 +1,6 @@
+// Use RC
+import { rc } from '../kit';
+
 // Check Target bind Global
 function check(name) {
   return ![undefined, 'undefined'].includes(typeof global[name]);
@@ -87,4 +90,4 @@ function tolerant(setting = {}, rant = {}) {
 }
 
 // First Time Check Uni
-export default tolerant(process.env.rc.rant || {});
+export default tolerant(rc.rant || {});
