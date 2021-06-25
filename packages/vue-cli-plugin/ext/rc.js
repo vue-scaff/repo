@@ -122,4 +122,4 @@ const preset = {
 };
 
 // Export RC
-export default Object.assign(preset, rc);
+module.exports = Object.assign(preset, rc);

@@ -12,6 +12,7 @@ const {
 // Use Pretty World
 const {
   inf,
+  rc,
   command,
   concert,
   preset,
@@ -34,7 +35,7 @@ const { argvs } = command;
 const { resolve } = concert;
 
 // Use Preset
-const { rc, injection } = preset;
+const { injection } = preset;
 
 // Use Kit
 const { assign, toStringify, tolerance } = kit;
