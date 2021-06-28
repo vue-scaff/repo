@@ -114,11 +114,7 @@ const preset = {
    * @property weex { Boolean }
    * ========== ========== ==========
    */
-  rant: {
-    uni: true,
-    wx: true,
-    weex: true,
-  },
+  rant: null,
 };
 
 // Export RC
